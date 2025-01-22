@@ -1,121 +1,101 @@
-/* General body styles */
-body {
-    background-color: #000000; /* Black background */
-    font-family: 'Open Sans', sans-serif; /* Default font set to Open Sans */
+/* Reset de márgenes y padding */
+* {
     margin: 0;
     padding: 0;
-    text-align: center;
-    height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Establecer el tamaño de la página y el fondo */
+body {
+    width: 800px;
+    height: 600px;
+    margin: 0 auto;
+    background-color: #DCDCDC; /* Gris medio */
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden; /* Evitar que aparezcan barras de desplazamiento */
+}
+
+/* Estilo del contenedor principal */
+.container {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    color: #FFFFFF; /* White text color for contrast on black background */
-    cursor: url('https://www.rw-designer.com/cursor-view/33108.png'), auto; /* Butterfly cursor */
-    overflow: hidden;
-    position: relative;
-}
-
-/* Full screen container for the welcome message */
-.welcome-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 1;
-    animation: fadeOut 10s 3s forwards; /* Fade out the welcome screen (slower) */
-    z-index: 10; /* Keeps the welcome message on top */
+    height: 100%;
+    color: #333333; /* Gris oscuro */
+    text-align: center;
 }
 
-.welcome-container h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 100px;
-    font-weight: bold;
-    color: #00E5FF;
+/* Imagen encima del título */
+#gafas {
+    max-width: 35%;
+    width: 23%;
+    height: auto; /* Mantener la proporción de la imagen */
+}
+
+/* Estilo para el título con contorno sin relleno */
+
+/* Estilo para el título con contorno sin relleno */
+#title {
+    color: transparent; /* Hace el color de la letra transparente */
+    font-size: 63px;
     margin: 0;
-    animation: slideIn 1s ease-out forwards, typing 4s steps(20) 1s forwards; /* Slide-in and then typing effect */
+    font-family: 'Poppins', sans-serif;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #ffffff;
+    width: 0;
+    animation: typing 3s steps(10) 1s forwards, blink 1s step-end infinite;
+    -webkit-text-stroke: 2px #000000; /* Agrega el contorno en WebKit */
+    text-shadow: 2px #000000; /* Propiedad estándar para contorno (no es ampliamente soportada) */
 }
 
 
-
-/* Animation to fade out the welcome message (slower fade) */
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
-
-/* Typing effect (each letter appears one by one) */
+/* Animación de máquina de escribir */
 @keyframes typing {
-    from {
+    0% {
         width: 0;
     }
-    to {
+    100% {
         width: 100%;
     }
 }
 
-/* Particles animation */
-.particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    background: url('https://www.transparenttextures.com/patterns/diag-stripes.png');
-    animation: particleEffect 4s infinite;
-}
-
-/* Particle effect (background animation) */
-@keyframes particleEffect {
-    0% {
-        transform: scale(1);
-        opacity: 0.3;
-    }
+/* Animación de parpadeo del cursor */
+@keyframes blink {
     50% {
-        transform: scale(1.2);
-        opacity: 0.7;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0.3;
+        border-color: transparent;
     }
 }
 
-/* Main content after welcome message */
-.main-content {
-    display: none;
-    font-family: 'Open Sans', sans-serif;
-    color: #E0E0E0;
-}
-
-.main-content h2 {
-    font-family: 'Raleway', sans-serif;
-    font-size: 40px;
-    margin-top: 20px;
-}
-
-/* Button style */
-.button {
-    font-family: 'Roboto', sans-serif;
-    padding: 10px 20px;
+/* Estilo para el subtítulo */
+#subtitle {
+    color: #333333;
     font-size: 18px;
-    color: white;
-    background-color: #00E5FF;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 30px;
+    margin-top: 20px; /* Añadir espacio entre el título y el subtítulo */
+    margin-bottom: 30px;
+    font-family: 'Source Code Pro', monospace;
+    max-width: 600px;
+    line-height: 1.5;
 }
 
+/* Estilo del botón */
+.button {
+    background-color: #FFEB3B; /* Amarillo */
+    color: #333333; /* Gris oscuro */
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.5s ease, transform 0.3s ease; /* Añadido transform */
+    margin-top: 20px; /* Añadir espacio entre el subtítulo y el botón */
+}
+
+/* Efecto al pasar el mouse sobre el botón */
 .button:hover {
-    background-color: #00B0FF;
+    background-color: #1D3557; /* Un amarillo más suave */
+    transform: scale(1.1); /* Efecto de agrandamiento al hacer hover */
+    color: #ffffff;
 }
